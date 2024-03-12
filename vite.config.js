@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import os from 'os'
+import fs from 'fs'
+import https from 'https'
 
 function getLocalIpAddress() {
   const interfaces = os.networkInterfaces()
@@ -17,6 +19,7 @@ function getLocalIpAddress() {
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
+    https: true,
     host: getLocalIpAddress(),
     port: 8080,
   },
